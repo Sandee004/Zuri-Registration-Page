@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="bod" class="login">
+        <img src="images/logo.png">
+        <p class="smallTxt">Welcome to</p>
+        <p class="bigTxt">He<span>Xchange</span></p>
+
+        <form>
+            <label>Email</label>
+            <input type="email" id="email">
+            
+
+            <label>Password</label>
+            <input type="password" id="password1" maxlength="15">
+            <img class="eye" id="eye-icon1" src="images/eye.png">
+            
+
+            <label>Confirm password</label>
+            <input id="password2" type="password" maxlength="15">
+            <img class="eye" id="eye-icon2" src="images/eye.png">
+
+            <p>Don't have an account? <span><a href="index.html">Sign Up</a></span></p>
+
+            <a id="submit" href="">
+                <button id="btn">Submit</button>
+            </a>
+        </form>
+    </div>
+
+    <script>
+        const email= document.getElementById("email")
+        var pass1= document.getElementById("password1");
+        var pass2= document.getElementById("password2");
+        var submit= document.getElementById("submit");
+        var btn= document.getElementById("btn");
+        const togglePassword1= document.getElementById("eye-icon1");
+        const togglePassword2= document.getElementById("eye-icon2");
+
+        email.setAttribute('required', "");
+
+        togglePassword1.addEventListener("click", function () {
+            // toggle the type attribute
+            const type1 = pass1.getAttribute("type") === "password" ? "text" : "password";
+            pass1.setAttribute("type", type1)
+        });
+
+        togglePassword2.addEventListener("click", function () {
+            // toggle the type attribute
+            const type2 = pass2.getAttribute("type") === "password" ? "text" : "password";
+            pass2.setAttribute("type", type2)
+        });
+
+
+        //Password validation
+        btn.addEventListener("click", function() {
+            if (pass1.value === "" || pass1.value.length < 8) {
+                alert("Minimum password characters is 8 Chief")
+            }
+            
+            else if (pass1.value !== pass2.value) {
+                alert("Passwords don't match")
+            }
+            else if (pass1.value === pass2.value) {
+                localStorage.setItem("user-n", email.value)
+                localStorage.setItem("user-p", pass1.value)
+                var check1 = localStorage.getItem("user-n")
+                var check2 = localStorage.getItem("user-p")
+                //console.log("Mail used= " + check1 + "<br> Passowrd used= " + check2)
+                window.open("success.html", "_blank")
+            }
+        })
+
+
+
+        
+    </script>
+</body>
+</html>

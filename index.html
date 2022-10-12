@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="register">
+        <h2>Personal Information</h2>
+        <form>
+            <label>First Name</label>
+            <input type="text" id="firstname" required>
+
+            <label>Last Name</label>
+            <input type="text" id="lastname" required>
+
+            <label>Email</label>
+            <input type="text" id="email" required>
+
+            <label>Phone</label>
+            <input type="tel" id="phone-no" required>
+
+            <label>Date of Birth</label>
+            <input type="date" id="DOB" placeholder=" " value="" min="1997-01-01" max="2030-12-31" name="date" required>
+
+            <label>Favourite Color</label>
+            <input type="color" id="color" value="#000000">
+
+            <label>Gender</label>
+            <label class="check">
+                <input type="radio" id="gender" name="checkbox" required>
+                <span>Male</span>
+            </label>
+
+            <label class="check">
+                <input type="radio" id="gender" name="checkbox" required>
+                <span>Female</span>
+            </label>
+
+            <p>Already have an account? <span><a href="login.html">Login</a></span></p>
+            
+
+
+            <a id="submit" href="">
+                <button id="btn">Continue</button>
+            </a>
+        </form>
+    </div>
+
+    <script>
+        const firstname = document.getElementById("firstname");
+        const lastname = document.getElementById("lastname");
+        const email = document.getElementById("email");
+        const phone = document.getElementById("phone-no");
+        const DOB = document.getElementById("DOB");
+        const gender = document.getElementById("gender")
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", function () {
+            if (firstname.value.length > 1 && lastname.value.length > 1 && email.value.length > 5 && phone.value.length == 11 && DOB.value !== "" && gender.checked) {
+                window.open("success.html", "_blank")
+            }
+        })
+    </script>
+</body>
+
+</html>
