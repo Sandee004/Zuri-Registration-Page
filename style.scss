@@ -20,88 +20,56 @@ body {
 
 @mixin pageStr {
     background: #292626;
-    height: cover;
-}
-
-@mixin logo {
-    color: white;
-
-    span {
-        color: #FF6600;
-    }
-}
-
-@mixin logoPosition {
-    margin: 40px 0 0 15px;
-    width: 60px;
-    height: 60px;
-}
-
-@mixin btn {
-    border-radius: 4px;
-    width: 90%;
-    padding: 10px;
-    font-weight: 600;
-    text-align: center;
-    font-size: 17px;
-    color: #ECECEC;
+    height: cover;    
 }
 
 @mixin passwordField {
-    @include btn();
     background: rgba(196, 196, 196, 0.1);
     border: none;
     margin: 6px 0 20px 0;
     border-radius: 5px;
+    font-size: 17px;
+    color: #ECECEC;
+    padding: 10px;
     text-align: left;
     font-weight: 500;
     width: 78%;
 }
 
-@mixin pageHeader {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-}
-/*
-@mixin bgChange {
-    border-radius: 15px;
-    background: rgba(196, 196, 196, 0.1);
-    display: block;
-    margin: auto;
-    width: 327px;
-    height: 112px;
-    text-align: center;
-}*/
-
 .register {
     @include pageStr();
-    height: contain;
+    height: 185vh;
 
     h2 {
-        @include pageHeader();
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
         margin-bottom: 70px;
         padding-top: 100px;
     }
 
     form {
         margin-left: 15px;
+        margin-bottom: 10px;
 
         label {
             display: block;
             text-align: left;
         }
 
-        input {
+        .check, #DOB, #phone-no, #email, #lastname, #firstname {
             @include passwordField();
             width: 90%;
         }
 
-        #color{
+        /*#color{
             background: white;
             color: lightgreen;
             width: 50px;
-        }
+            padding: 0;
+            margin: 0;
+            height: 10px;
+        }*/
 
         .check {
             margin: 20px 14px 0 0;
@@ -119,23 +87,26 @@ body {
             }
         }
 
-        button {
-            @include btn();
+        #submit{
+            display: block;
+            text-align: center;
             background: transparent;
             color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 17px;
+            width: 90%;
             border: 1px solid #FF6600;
-            width: 95%;
             margin: 100px 0 40px 0;
-
-            &:hover {
-                background-color: #FF6600;
+            padding: 10px;
+            &:hover{
+                background: #FF6600;
                 border: none;
             }
         }
     }
 
     p{
-        @include logo();
         text-align: right;
         margin: 20px 10px 0 0;
         font-size: 17px;
@@ -162,7 +133,6 @@ body {
     }
 
     .bigTxt {
-        @include logo();
         text-align: center;
         font-size: 35px;
         font-weight: 700;
